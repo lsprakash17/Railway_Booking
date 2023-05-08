@@ -8,19 +8,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% User user= (User)session.getAttribute("user"); %>
-<% if(user==null){
-out.print("<h1>Session Expired Loggin again</h1>");
+<% User user=(User)session.getAttribute("user"); %>
+<%if(user==null){
+response.getWriter().print("<h1 style='color:red'>Session Expired login again</h1>");	
 request.getRequestDispatcher("Login.html").include(request, response);
-} else {%>
-<h1>Add Money To wallet</h1>
-<form action="">
-Enter the Amount To add:
-<input type="number" name="number"><br>
+}
+else{
+%>
+<h1>Add Money to Wallet</h1>
+<br>
+<form action="addmoney">
+Enter Amount to add : 
+<input type="number" name="amount"><br>
 <button>Add</button>
-</form>
-<a href="UserHome.html"><button>HOME</button></a>
+</form><br>
+<a href="UserHome.html"><button>Back</button></a>
 <%} %>
-
 </body>
 </html>
