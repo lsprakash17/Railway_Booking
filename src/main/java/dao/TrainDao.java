@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import dto.Train;
+import dto.TrainTicket;
 
 public class TrainDao {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
@@ -36,6 +37,11 @@ public class TrainDao {
 	public void Update(Train train) {
 		transaction.begin();
 		manager.merge(train);
+		transaction.commit();
+	}
+	public void sav(TrainTicket ticket) {
+		transaction.begin();
+		manager.persist(ticket);
 		transaction.commit();
 	}
 }

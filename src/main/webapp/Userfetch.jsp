@@ -32,7 +32,7 @@
 <th><%=Tr.getStations()[Tr.getStations().length-1]%></th>
 <th><%=Tr.getTime()[0]%></th>
 <th><%=Tr.getTime()[Tr.getTime().length-1]%></th>
-<th><%=Tr.getSeat()%>></th>
+<th><%=Tr.getSeat()%></th>
 <th><%=Arrays.toString(Tr.getDays()) %></th>
 <th><a href="Book.jsp?tn=<%=Tr.getNumber()%>"><button>BOOK</button></a></th>
 </tr>

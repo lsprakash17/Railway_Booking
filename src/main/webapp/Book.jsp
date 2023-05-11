@@ -30,9 +30,9 @@ if(train==null)
 else{%>
 <h1>Hello <%= user.getFname()+" "+user.getLname() %></h1>
 <br>
-<form action="" method="">
-UserID:<input type="text" value="<%=user.getId()%>" readonly="readonly"><br>
-TrainNumber:<input type="text" value="<%=TrainNum%>" readonly="readonly"><br>
+<form action="bookticket" method="post">
+UserID:<input type="text"  name="uid" value="<%=user.getId()%>" readonly="readonly"><br>
+TrainNumber:<input type="text" name="tn"value="<%=TrainNum%>" readonly="readonly"><br>
 From:
 <select name="from">
 <% for(int i=0;i<train.getStations().length-1;i++){%>
