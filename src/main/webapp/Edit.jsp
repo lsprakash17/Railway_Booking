@@ -22,29 +22,21 @@
         <label for="tseat">Number of Seats:</label>
         <input type="number" name="tseat" id="tseat" value="<%=train.getSeat()%>">
         <label for="tstation">Stations:</label>
-        <textarea rows="5" cols="30" name="tstation" id="tstation">
-            <% for(String station:train.getStations()){
+        <textarea rows="5" cols="30" name="tstation" id="tstation"><% for(String station:train.getStations()){
                     out.print(station+",");
-                } %>
-        </textarea>
+                } %></textarea>
         <label for="tprice">Ticket Price:</label>
-        <textarea rows="5" cols="30" name="tprice" id="tprice">
-            <% for(String price:train.getPrice()){
+        <textarea rows="5" cols="30" name="tprice" id="tprice"><% for(String price:train.getPrice()){
                     out.print(price+",");
-                } %>
-        </textarea>
+                } %></textarea>
         <label for="ttime">Time:</label>
-        <textarea rows="5" cols="30" name="ttime" id="ttime">
-            <% for(String Time:train.getTime()){
+        <textarea rows="5" cols="30" name="ttime" id="ttime"><% for(String Time:train.getTime()){
                     out.print(Time+",");
-                } %>
-        </textarea>
+                } %></textarea>
         <label for="tday">Days:</label>
-        <textarea rows="5" cols="30" name="tday" id="tday">
-            <% for(String Days:train.getDays()){
+        <textarea rows="5" cols="30" name="tday" id="tday"><% for(String Days:train.getDays()){
                     out.print(Days+",");
-                } %>
-        </textarea>
+                } %></textarea>
         <button type="reset">Cancel</button>
         <button>Update</button>
     </form>

@@ -8,22 +8,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
 
-@Entity
+@Entity(name="trainticket")
 @Data
 public class TrainTicket {
 @Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(generator = "pnr")
+@SequenceGenerator(initialValue = 4566541,allocationSize = 1,name="pnr",sequenceName = "pnr")
+int pnr;
 int id;
 int trainnum;
-String From;
-String To;
+String source;
+String destination;
 int NUmberOfSeats;
 double amt;
 Date dob;
 Date doj;
+String status;
 
 //pan
 @ManyToOne

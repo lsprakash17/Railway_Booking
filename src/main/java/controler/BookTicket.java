@@ -65,12 +65,12 @@ public class BookTicket extends HttpServlet {
 							- Double.parseDouble(train.getPrice()[fromPos]);
 					double amount=numberOfSeats*price;
 					
-					boolean flag=false;
+					boolean flag=true;
 					for(String day:train.getDays())
 					{
 						if(day.equalsIgnoreCase(doj.toLocalDate().getDayOfWeek().getDisplayName(TextStyle.FULL,Locale.ENGLISH)))
 								{
-							flag=true;
+							flag=false;
 								}
 					}
 					
@@ -86,17 +86,25 @@ public class BookTicket extends HttpServlet {
 							req.getRequestDispatcher("UserHome.html").include(req, resp);
 						}
 						else {
+							if(train.getSeat()<numberOfSeats)
+							{
+								resp.getWriter().print("<h1>Seats are not available</h1>");
+								req.getRequestDispatcher("UserHome.html").include(req, resp);
+							}
+							else {
 							TrainTicket ticket=new TrainTicket();
 							ticket.setAmt(amount);
 							ticket.setDob(dob);
 							ticket.setDoj(doj);
-							ticket.setFrom(from);
+							ticket.setSource(from);
 							ticket.setNUmberOfSeats(numberOfSeats);
-							ticket.setTo(to);
+							ticket.setDestination(to);
 							ticket.setTrainnum(trainNumber);
 							ticket.setUser(user);
-							
+						     
 							dao.sav(ticket);
+							train.setSeat(train.getSeat()-numberOfSeats);
+							dao.Update(train);
 							
 							List<TrainTicket> ticke=user.getTickets();
 							if(ticke==null)
@@ -105,10 +113,14 @@ public class BookTicket extends HttpServlet {
 							}
 							ticke.add(ticket);
 							user.setTickets(ticke);
+							user.setWallet(user.getWallet()-amount);
 							Userdao dao2=new Userdao();
-							dao2.save(user);
+							dao2.update(user);
+							
+							resp.getWriter().print("<h1>Ticket Booked Successfully</h1>");
+							req.getRequestDispatcher("UserHome.html").include(req, resp);
 						}
-						
+					}
 					}
 
 				}
