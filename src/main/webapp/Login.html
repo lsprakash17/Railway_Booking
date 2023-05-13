@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
+<meta charset="UTF-8">
+<title>Login User</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 50px;
+	color: #333;
+}
+
+form {
+	margin: auto;
+	width: 50%;
+	border: 1px solid #ccc;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+table {
+	margin: auto;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+th, td {
+	padding: 10px;
+	border: none;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+button[type="reset"], button[type="submit"] {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #333;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button[type="reset"] {
+	background-color: #ccc;
+	color: #333;
+	margin-right: 10px;
+}
+
+a {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.button-cell {
+	text-align: center;
+}
+</style>
 </head>
 <body>
-<h1>Login User</h1>
-<form action="login" method="post">
-<table>
-<tr>
-<th>UserId:</th>
-<th><input type="text" name="userid"></th>
-</tr>
-<tr>
-<th>Password:</th>
-<th><input type="password" name="password"></th>
-</tr>
-<tr>
-<th><a href="Forgot.html">Forgot Password?</a></th>
-</tr>
-<tr>
-<th><button type="reset">Cancel</button></th>
-<th><button>Login</button></th>
-</tr>
-</table>
-</form>
-<br>
-<a href="Register.html">New? Click here to Create Account</a>
-<br><br>
-<a href="Home.html"><button>Home</button></a>
+	<h1>Login User</h1>
+	<form action="login" method="post">
+		<table>
+			<tr>
+				<th>UserId:</th>
+				<td><input type="text" name="userid"></td>
+			</tr>
+			<tr>
+				<th>Password:</th>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td class="button-cell"><button type="reset">Cancel</button></td>
+				<td class="button-cell"><button type="submit">Login</button></td>
+			</tr>
+			<tr>
+				<th><a href="Forgot.html">Forgot Password?</a></th>
+			</tr>
+		</table>
+	</form>
+	<a href="Register.html">New? Click here to Create Account</a>
+	<a href="Home.html"><button>Home</button></a>
 </body>
 </html>

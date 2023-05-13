@@ -19,7 +19,6 @@ public class TrainTicket {
 @GeneratedValue(generator = "pnr")
 @SequenceGenerator(initialValue = 4566541,allocationSize = 1,name="pnr",sequenceName = "pnr")
 int pnr;
-int id;
 int trainnum;
 String source;
 String destination;
