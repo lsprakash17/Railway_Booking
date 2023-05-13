@@ -101,10 +101,12 @@ public class BookTicket extends HttpServlet {
 							ticket.setDestination(to);
 							ticket.setTrainnum(trainNumber);
 							ticket.setUser(user);
+							ticket.setStatus("Booked");
 						     
 							dao.sav(ticket);
 							train.setSeat(train.getSeat()-numberOfSeats);
 							dao.Update(train);
+							
 							
 							List<TrainTicket> ticke=user.getTickets();
 							if(ticke==null)

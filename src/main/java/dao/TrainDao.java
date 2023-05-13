@@ -44,4 +44,14 @@ public class TrainDao {
 		manager.persist(ticket);
 		transaction.commit();
 	}
+	public TrainTicket fetchTicket(int pnr)
+	{
+		return manager.find(TrainTicket.class, pnr);
+	}
+
+	public void update(TrainTicket ticket) {
+		transaction.begin();
+		manager.merge(ticket);
+		transaction.commit();
+	}
 }
